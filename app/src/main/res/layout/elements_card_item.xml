@@ -33,7 +33,8 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/tajawal_bold"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="18sp"
         tools:text="Medciene Request"
         />
@@ -42,7 +43,8 @@
         android:id="@+id/tv_element_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/tajawal_medium"
+        android:textColor="@color/colorSecondryText"
         android:textSize="14sp"
         tools:text="Running Request"
         />

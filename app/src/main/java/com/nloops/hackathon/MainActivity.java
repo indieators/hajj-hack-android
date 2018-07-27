@@ -2,9 +2,11 @@ package com.nloops.hackathon;
 
 import android.content.ContentUris;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
+    if (isFirstTimeRun()) {
+      createMockData();
+    }
     initRecyclerView();
   }
 
@@ -72,4 +77,23 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     medicineIntent.setData(elementUri);
     startActivity(medicineIntent);
   }
+
+  private boolean isFirstTimeRun() {
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    return preferences.getBoolean(getString(R.string.str_is_first_run),
+        getResources().getBoolean(R.bool.first_run));
+  }
+
+  private void createMockData() {
+    CardModel[] models = new CardModel[]{new CardModel("Medicine Request", R.drawable.ic_medicine,
+        "Running Request", ElementsEntry.STATUS_VISIBLE),
+        new CardModel("Campaign Location", R.drawable.ic_map,
+            "Heading to Arraft", ElementsEntry.STATUS_VISIBLE),
+        new CardModel("Need Help?", R.drawable.ic_phone,
+            "", ElementsEntry.STATUS_VISIBLE)};
+    for (CardModel model : models) {
+      DataUtils.insertMockData(model, MainActivity.this);
+    }
+  }
+
 }

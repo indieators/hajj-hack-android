@@ -4,4 +4,7 @@
   <string name="med_dose_hint">Medicine Dose</string>
   <string name="empty_lv_med">No Items Added</string>
   <string name="med_urgent_case">Urgent Case</string>
+  <string name="med_submit_btn">Submit</string>
+  <string name="key_user_name">key_user</string>
+  <string name="str_is_first_run">first_run</string>
 </resources>
