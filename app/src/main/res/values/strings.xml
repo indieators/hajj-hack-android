@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">Hackathon</string>
+  <string name="med_name_hint">Medicine Name</string>
+  <string name="med_dose_hint">Medicine Dose</string>
+  <string name="empty_lv_med">No Items Added</string>
+  <string name="med_urgent_case">Urgent Case</string>
+</resources>
